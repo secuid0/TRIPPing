@@ -3,8 +3,8 @@
 # <bitbar.version>v0.1</bitbar.version>
 # <bitbar.author>Anastasios Monachos (secuid0) - [anastasiosm(at)gmail(dot)com]</bitbar.author>
 # <bitbar.author.github>secuid0</bitbar.author.github>
-# <bitbar.desc>Monitor regularly the path and ping roundtrip, from your network to fixed IPs and determine if they have suddenly been increased. Greetz to Kim DotCom</bitbar.desc>
-# <bitbar.image>https://imgur.com/eKxeuxq</bitbar.image>
+# <bitbar.desc>TRIPPing (TRaceroute-IP-Ping) plugin aims to regularly monitor the path and ping roundtrip, from your network to fixed IPs and determine if they have suddenly been changed. Greetz to Kim DotCom</bitbar.desc>
+# <bitbar.image>https://i.imgur.com/eKxeuxq.png</bitbar.image>
 # <bitbar.dependencies>bash, osascript</bitbar.dependencies>
 
 # default refresh interval 1h, to change, rename this file accordingly:
@@ -44,7 +44,7 @@ echo "---"
 echo "Ping output: | color=red"
 for i in "${SITES_TO_PING[@]}"
 do
-	echo "$(ping -c 1 "$i" |grep -vE 'transmitted|statistics|ttl' | sed 's/---//g' | sed '/^$/d')"
+	ping -c 1 "$i" |grep -vE 'transmitted|statistics|ttl' | sed 's/---//g' | sed '/^$/d'
    	echo "-"
 done
 echo "---"
